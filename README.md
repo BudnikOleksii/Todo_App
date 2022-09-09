@@ -1,6 +1,6 @@
 # React Todo App
 
-- [DEMO LINK](https://BudnikOleksii.github.io/react_todo-app-with-api/)
+- [DEMO LINK](https://BudnikOleksii.github.io/Todo_App/)
 
 ## Description:
 1. Enter your email to create a user or find an existing one in the API;
