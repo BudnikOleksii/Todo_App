@@ -1,11 +1,29 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.scss';
-import { App } from './App';
+import { createRoot } from 'react-dom/client';
 
-ReactDOM.render(
-  <React.StrictMode>
+import 'bulma/css/bulma.css';
+import '@fortawesome/fontawesome-free/css/all.css';
+import './styles/index.scss';
+
+import { HashRouter, Route, Routes } from 'react-router-dom';
+import { App } from './App';
+import { AuthProvider } from './components/Auth/AuthContext';
+
+const AppWithProvider = () => (
+  <AuthProvider>
     <App />
-  </React.StrictMode>,
-  document.getElementById('root'),
+  </AuthProvider>
 );
+
+const Root = () => (
+  <HashRouter>
+    <Routes>
+      <Route path="/">
+        <Route index element={<AppWithProvider />} />
+        <Route path=":filterType" element={<AppWithProvider />} />
+      </Route>
+    </Routes>
+  </HashRouter>
+);
+
+createRoot(document.getElementById('root') as HTMLDivElement)
+  .render(<Root />);
